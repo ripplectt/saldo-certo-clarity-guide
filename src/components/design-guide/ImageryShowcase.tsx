@@ -100,26 +100,27 @@ export function ImageryShowcase() {
           <div className="p-6 rounded-2xl bg-secondary border border-border">
             <p className="text-xs text-muted-foreground uppercase tracking-wider mb-4">Gráfico de Barras Simples</p>
             <div className="flex items-end gap-3 h-32">
-              <div className="flex-1 flex flex-col items-center gap-2">
-                <div className="w-full bg-primary/20 rounded-t-lg" style={{ height: "60%" }} />
-                <span className="text-xs text-muted-foreground">Seg</span>
-              </div>
-              <div className="flex-1 flex flex-col items-center gap-2">
-                <div className="w-full bg-primary/30 rounded-t-lg" style={{ height: "80%" }} />
-                <span className="text-xs text-muted-foreground">Ter</span>
-              </div>
-              <div className="flex-1 flex flex-col items-center gap-2">
-                <div className="w-full bg-primary/40 rounded-t-lg" style={{ height: "45%" }} />
-                <span className="text-xs text-muted-foreground">Qua</span>
-              </div>
-              <div className="flex-1 flex flex-col items-center gap-2">
-                <div className="w-full bg-primary rounded-t-lg" style={{ height: "100%" }} />
-                <span className="text-xs text-muted-foreground">Qui</span>
-              </div>
-              <div className="flex-1 flex flex-col items-center gap-2">
-                <div className="w-full bg-primary/60 rounded-t-lg" style={{ height: "70%" }} />
-                <span className="text-xs text-muted-foreground">Sex</span>
-              </div>
+              {[
+                { day: "Seg", value: 60, opacity: "20" },
+                { day: "Ter", value: 80, opacity: "30" },
+                { day: "Qua", value: 45, opacity: "40" },
+                { day: "Qui", value: 100, opacity: "100" },
+                { day: "Sex", value: 70, opacity: "60" },
+              ].map((item, index) => (
+                <div key={item.day} className="flex-1 flex flex-col items-center gap-2">
+                  <div 
+                    className={cn(
+                      "w-full rounded-t-lg transition-all duration-700 ease-out",
+                      item.opacity === "100" ? "bg-primary" : `bg-primary/${item.opacity}`
+                    )}
+                    style={{ 
+                      height: `${item.value}%`,
+                      animationDelay: `${index * 100}ms`
+                    }}
+                  />
+                  <span className="text-xs text-muted-foreground">{item.day}</span>
+                </div>
+              ))}
             </div>
             <p className="text-xs text-success text-center mt-4 font-medium">✓ Legível, simples, cores consistentes</p>
           </div>
