@@ -11,7 +11,8 @@ import {
   Box,
   Target,
   FileText,
-  BookOpen
+  BookOpen,
+  Image
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ColorSwatch } from "@/components/design-guide/ColorSwatch";
@@ -22,6 +23,7 @@ import { SpacingGrid } from "@/components/design-guide/SpacingGrid";
 import { IconShowcase } from "@/components/design-guide/IconShowcase";
 import { SectionHeader } from "@/components/design-guide/SectionHeader";
 import { TableOfContents } from "@/components/design-guide/TableOfContents";
+import { ImageryShowcase } from "@/components/design-guide/ImageryShowcase";
 
 const sections = [
   { id: "essencia", number: "1", title: "Essência da Marca" },
@@ -31,8 +33,9 @@ const sections = [
   { id: "espacamento", number: "5", title: "Grid e Espaçamento" },
   { id: "icones", number: "6", title: "Iconografia" },
   { id: "componentes", number: "7", title: "Componentes" },
-  { id: "uso", number: "8", title: "Uso Correto/Incorreto" },
-  { id: "checklist", number: "9", title: "Checklist" },
+  { id: "imagens", number: "8", title: "Imagens e Gráficos" },
+  { id: "uso", number: "9", title: "Uso Correto/Incorreto" },
+  { id: "checklist", number: "10", title: "Checklist" },
 ];
 
 const Index = () => {
@@ -392,10 +395,22 @@ const Index = () => {
               <ComponentShowcase />
             </section>
 
-            {/* Section 8: Uso Correto/Incorreto */}
-            <section id="uso" className="scroll-mt-24">
+            {/* Section 8: Imagens e Gráficos */}
+            <section id="imagens" className="scroll-mt-24">
               <SectionHeader 
                 number="8" 
+                title="Imagens, Ilustrações e Gráficos" 
+                icon={Image}
+                description="Preferência por dados visuais e simulações de uso do app."
+              />
+              
+              <ImageryShowcase />
+            </section>
+
+            {/* Section 9: Uso Correto/Incorreto */}
+            <section id="uso" className="scroll-mt-24">
+              <SectionHeader 
+                number="9" 
                 title="Uso Correto e Incorreto" 
                 icon={FileText}
                 description="Exemplos práticos do que fazer e evitar."
@@ -471,10 +486,10 @@ const Index = () => {
               </div>
             </section>
 
-            {/* Section 9: Checklist */}
+            {/* Section 10: Checklist */}
             <section id="checklist" className="scroll-mt-24">
               <SectionHeader 
-                number="9" 
+                number="10"
                 title="Checklist Final" 
                 icon={CheckCircle2}
                 description="Verificar antes de publicar qualquer material."
